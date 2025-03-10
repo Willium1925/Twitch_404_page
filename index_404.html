@@ -5,29 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>找不到頁面 - 404</title>
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            background-color: #0e0e10; /* Twitch 黑底色 */
-            color: #fff;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1549921296-3a6b5aa4a3c3'); /* 換成你想要的圖片網址 */
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* 半透明黑色遮罩 */
+            z-index: -1;
+        }
+
+        .content {
+            height: 100%;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            flex-direction: column;
+            color: white;
+            text-align: center;
+            padding: 20px;
         }
 
         h1 {
-            font-size: 5rem;
-            margin: 0;
-            color: #9147ff; /* Twitch 紫色 */
+            font-size: 6rem;
+            color: #9147ff;
         }
 
         p {
             font-size: 1.5rem;
             margin-top: 1rem;
-            text-align: center;
         }
 
         a {
@@ -46,8 +75,18 @@
     </style>
 </head>
 <body>
-<h1>404</h1>
-<p>喔不！你找的頁面不在這裡。</p>
-<a href="https://www.twitch.tv">回到 Twitch 首頁</a>
+
+<!-- 背景圖 -->
+<div class="background"></div>
+<!-- 黑色半透明遮罩 -->
+<div class="overlay"></div>
+
+<!-- 主內容 -->
+<div class="content">
+    <h1>404</h1>
+    <p>喔不！你找的頁面不在這裡。</p>
+    <a href="https://www.twitch.tv">回到 Twitch 首頁</a>
+</div>
+
 </body>
 </html>
