@@ -22,7 +22,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1549921296-3a6b5aa4a3c3'); /* 換成你想要的圖片網址 */
+            background-image: url('https://images.unsplash.com/photo-1549921296-3a6b5aa4a3c3');
             background-size: cover;
             background-position: center;
             z-index: -2;
@@ -34,7 +34,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6); /* 半透明黑色遮罩 */
+            background-color: rgba(0, 0, 0, 0.6);
             z-index: -1;
         }
 
@@ -49,9 +49,37 @@
             padding: 20px;
         }
 
-        h1 {
+        .error-number {
             font-size: 6rem;
             color: #9147ff;
+            animation: fadeInScale 1.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .emoji {
+            font-size: 3rem;
+            margin-top: 1rem;
+            animation: bounce 1.5s infinite alternate;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-15px);
+            }
         }
 
         p {
@@ -66,27 +94,35 @@
             color: #fff;
             text-decoration: none;
             border-radius: 8px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
         a:hover {
             background-color: #772ce8;
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
 
-<!-- 背景圖 -->
+<!-- 背景 -->
 <div class="background"></div>
-<!-- 黑色半透明遮罩 -->
 <div class="overlay"></div>
 
-<!-- 主內容 -->
+<!-- 內容 -->
 <div class="content">
-    <h1>404</h1>
-    <p>喔不！你找的頁面不在這裡。</p>
+    <div class="error-number">404</div>
+    <div class="emoji">😵‍💫</div> <!-- 你可以換成 👾 🧠 🥲 或其他 -->
+    <p>喔不！你要找的頁面好像被吃掉了...</p>
     <a href="https://www.twitch.tv">回到 Twitch 首頁</a>
 </div>
+
+<!-- 音效 (選用) -->
+<!--
+<audio autoplay>
+  <source src="https://www.myinstants.com/media/sounds/windows-error.mp3" type="audio/mpeg">
+</audio>
+-->
 
 </body>
 </html>
